@@ -1,0 +1,99 @@
+/* Global animation keyframes */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slider custom styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-glow);
+  border: 2px solid white;
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-glow);
+  border: 2px solid white;
+}
+
+/* Responsive overrides */
+@media (max-width: 900px) {
+  /* Impact map layout */
+  #impact > div > div:last-of-type {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Take action layout */
+  #action > div > div:last-of-type {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer */
+  footer > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop nav, show mobile menu button */
+  header nav {
+    display: none !important;
+  }
+
+  header > div > button:last-child {
+    display: flex !important;
+  }
+}
+
+/* Hover effects */
+a:hover {
+  color: var(--accent-hover);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
