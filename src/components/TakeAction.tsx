@@ -67,7 +67,7 @@ export function TakeAction() {
 
             <div style={styles.repList}>
               {representatives.map(rep => (
-                <div key={rep.name} style={styles.repCard}>
+                <div key={rep.name} className="rep-card">
                   <div style={styles.repInfo}>
                     <div style={styles.repName}>{rep.name}</div>
                     <div style={styles.repMeta}>
@@ -98,10 +98,10 @@ export function TakeAction() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    style={styles.nlInput}
+                    className="nl-input"
                     required
                   />
-                  <button type="submit" style={styles.nlBtn}>Subscribe</button>
+                  <button type="submit" className="btn-primary">Subscribe</button>
                 </form>
               )}
             </div>
@@ -115,7 +115,7 @@ export function TakeAction() {
 
             <div style={styles.letterCard}>
               <pre style={styles.letterText}>{letterTemplate}</pre>
-              <button onClick={handleCopy} style={styles.copyBtn}>
+              <button onClick={handleCopy} className="btn-warm">
                 {copied ? 'Copied!' : 'Copy Letter'}
               </button>
             </div>
@@ -123,13 +123,13 @@ export function TakeAction() {
             <div style={styles.shareSection}>
               <h4 style={styles.shareTitle}>Share the Data</h4>
               <div style={styles.shareButtons}>
-                <button style={{ ...styles.shareBtn, background: '#1DA1F2' }}>
+                <button className="share-btn" style={{ background: '#1DA1F2' }}>
                   Share on X
                 </button>
-                <button style={{ ...styles.shareBtn, background: '#0A66C2' }}>
+                <button className="share-btn" style={{ background: '#0A66C2' }}>
                   Share on LinkedIn
                 </button>
-                <button style={{ ...styles.shareBtn, background: '#4267B2' }}>
+                <button className="share-btn" style={{ background: '#4267B2' }}>
                   Share on Facebook
                 </button>
               </div>
@@ -211,15 +211,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     gap: '8px',
   },
-  repCard: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '12px 16px',
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    borderRadius: 'var(--radius-md)',
-  },
+  repCard: {},
   repInfo: {
     display: 'flex',
     flexDirection: 'column',
@@ -272,28 +264,8 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     gap: '8px',
   },
-  nlInput: {
-    flex: 1,
-    padding: '10px 14px',
-    borderRadius: 'var(--radius-md)',
-    border: '1px solid var(--border)',
-    background: 'var(--bg-input)',
-    color: 'var(--text-primary)',
-    fontSize: '14px',
-    fontFamily: 'var(--font-body)',
-    outline: 'none',
-  },
-  nlBtn: {
-    padding: '10px 20px',
-    background: 'var(--accent)',
-    color: 'white',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '14px',
-    fontWeight: 600,
-    border: 'none',
-    cursor: 'pointer',
-    fontFamily: 'var(--font-body)',
-  },
+  nlInput: {},
+  nlBtn: {},
   nlSuccess: {
     color: 'var(--success)',
     fontSize: '14px',
@@ -315,18 +287,7 @@ const styles: Record<string, React.CSSProperties> = {
     maxHeight: '300px',
     overflow: 'auto',
   },
-  copyBtn: {
-    marginTop: '12px',
-    padding: '8px 16px',
-    background: 'var(--accent-warm)',
-    color: 'var(--bg)',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '13px',
-    fontWeight: 600,
-    border: 'none',
-    cursor: 'pointer',
-    fontFamily: 'var(--font-body)',
-  },
+  copyBtn: {},
   shareSection: {
     padding: '24px',
     background: 'var(--bg-card)',
@@ -344,14 +305,5 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '8px',
     flexWrap: 'wrap',
   },
-  shareBtn: {
-    padding: '8px 16px',
-    color: 'white',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '13px',
-    fontWeight: 600,
-    border: 'none',
-    cursor: 'pointer',
-    fontFamily: 'var(--font-body)',
-  },
+  shareBtn: {},
 };

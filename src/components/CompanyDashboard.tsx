@@ -32,6 +32,7 @@ export function CompanyDashboard() {
             {aiCompanies.map((company, i) => (
               <div
                 key={company.name}
+                className="table-row-hover"
                 style={{
                   ...styles.tableRow,
                   opacity: inView ? 1 : 0,

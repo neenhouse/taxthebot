@@ -63,7 +63,7 @@ export function TaxCalculator() {
           {fundingTargets.map(target => {
             const peopleFunded = calculateFunding(revenue, target.costPerPerson);
             return (
-              <div key={target.name} style={styles.fundingCard}>
+              <div key={target.name} className="funding-card">
                 <div style={styles.fundingIcon}>{target.icon}</div>
                 <div style={styles.fundingName}>{target.name}</div>
                 <div style={styles.fundingPeople}>
@@ -230,14 +230,7 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '16px',
     marginBottom: '48px',
   },
-  fundingCard: {
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    borderRadius: 'var(--radius-lg)',
-    padding: '24px',
-    textAlign: 'center',
-    transition: 'all 0.2s',
-  },
+  fundingCard: {},
   fundingIcon: {
     fontSize: '32px',
     marginBottom: '12px',

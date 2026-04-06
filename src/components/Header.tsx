@@ -30,7 +30,7 @@ export function Header() {
 
         <nav style={styles.nav}>
           {navLinks.map(link => (
-            <a key={link.href} href={link.href} style={styles.navLink}>
+            <a key={link.href} href={link.href} className="nav-link">
               {link.label}
             </a>
           ))}
@@ -111,15 +111,6 @@ const styles: Record<string, React.CSSProperties> = {
   nav: {
     display: 'flex',
     gap: '8px',
-  },
-  navLink: {
-    color: 'var(--text-secondary)',
-    textDecoration: 'none',
-    padding: '8px 14px',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '14px',
-    fontWeight: 500,
-    transition: 'all 0.2s',
   },
   menuBtn: {
     display: 'none',

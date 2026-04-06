@@ -15,6 +15,11 @@
   }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 /* Slider custom styling */
 input[type="range"] {
   -webkit-appearance: none;
@@ -96,4 +101,278 @@ button:hover {
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* ── Nav link hover ─────────────────────────────────── */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-link:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── CTA primary button hover ───────────────────────── */
+.cta-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: white !important;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+.cta-primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 4px 24px rgba(220, 38, 38, 0.5);
+  color: white !important;
+}
+.cta-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.3);
+}
+
+/* ── CTA secondary button hover ─────────────────────── */
+.cta-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--accent-warm);
+  border: 1px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.cta-secondary:hover {
+  background: rgba(250, 204, 21, 0.08);
+  box-shadow: 0 0 16px rgba(250, 204, 21, 0.2);
+  color: var(--accent-warm-hover);
+  transform: translateY(-2px);
+}
+.cta-secondary:active {
+  transform: translateY(0);
+}
+
+/* ── Counter cards ──────────────────────────────────── */
+.counter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+.counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--card-accent, var(--accent-warm));
+  opacity: 0.7;
+}
+.counter-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.counter-card--profit::before { background: var(--accent-warm); }
+.counter-card--jobs::before   { background: var(--accent); }
+.counter-card--tax::before    { background: var(--success); }
+
+/* ── Table row hover ────────────────────────────────── */
+.table-row-hover {
+  transition: background 0.15s ease;
+}
+.table-row-hover:hover {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ── Funding card hover ─────────────────────────────── */
+.funding-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+.funding-card:hover {
+  border-color: rgba(250, 204, 21, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(250, 204, 21, 0.12);
+}
+
+/* ── Policy card hover ──────────────────────────────── */
+.policy-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.policy-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Rep card hover ─────────────────────────────────── */
+.rep-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s, background 0.15s;
+}
+.rep-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+/* ── State row button hover ─────────────────────────── */
+.state-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  font-family: var(--font-body);
+  text-align: left;
+  color: var(--text-primary);
+}
+.state-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border);
+}
+.state-row--active {
+  border-color: var(--accent) !important;
+  background: rgba(220, 38, 38, 0.08) !important;
+}
+
+/* ── Copy / Subscribe button hover ─────────────────── */
+.btn-primary {
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-warm {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--accent-warm);
+  color: var(--bg);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-warm:hover {
+  background: var(--accent-warm-hover);
+  transform: translateY(-1px);
+}
+.btn-warm:active {
+  transform: translateY(0);
+}
+
+/* ── Share buttons ──────────────────────────────────── */
+.share-btn {
+  padding: 8px 16px;
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.share-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+.share-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Sort buttons ───────────────────────────────────── */
+.sort-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+}
+.sort-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.04);
+}
+.sort-btn--active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+/* ── Newsletter input focus ─────────────────────────── */
+.nl-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.nl-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
 }

@@ -41,19 +41,13 @@ export function ImpactMap() {
             <div style={styles.sortRow}>
               <span style={styles.sortLabel}>Sort by:</span>
               <button
-                style={{
-                  ...styles.sortBtn,
-                  ...(sortBy === 'jobsAtRisk' ? styles.sortBtnActive : {}),
-                }}
+                className={`sort-btn${sortBy === 'jobsAtRisk' ? ' sort-btn--active' : ''}`}
                 onClick={() => setSortBy('jobsAtRisk')}
               >
                 Jobs at Risk
               </button>
               <button
-                style={{
-                  ...styles.sortBtn,
-                  ...(sortBy === 'percentWorkforce' ? styles.sortBtnActive : {}),
-                }}
+                className={`sort-btn${sortBy === 'percentWorkforce' ? ' sort-btn--active' : ''}`}
                 onClick={() => setSortBy('percentWorkforce')}
               >
                 % Workforce
@@ -64,10 +58,7 @@ export function ImpactMap() {
               {sorted.map(state => (
                 <button
                   key={state.abbr}
-                  style={{
-                    ...styles.stateRow,
-                    ...(selectedState?.abbr === state.abbr ? styles.stateRowActive : {}),
-                  }}
+                  className={`state-row${selectedState?.abbr === state.abbr ? ' state-row--active' : ''}`}
                   onClick={() => setSelectedState(state)}
                 >
                   <div style={styles.stateLeft}>
@@ -248,22 +239,8 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '12px',
     color: 'var(--text-muted)',
   },
-  sortBtn: {
-    padding: '4px 12px',
-    fontSize: '12px',
-    borderRadius: 'var(--radius-md)',
-    border: '1px solid var(--border)',
-    background: 'transparent',
-    color: 'var(--text-secondary)',
-    cursor: 'pointer',
-    fontFamily: 'var(--font-body)',
-    transition: 'all 0.2s',
-  },
-  sortBtnActive: {
-    background: 'var(--accent)',
-    borderColor: 'var(--accent)',
-    color: 'white',
-  },
+  sortBtn: {},
+  sortBtnActive: {},
   stateList: {
     display: 'flex',
     flexDirection: 'column',
@@ -271,25 +248,8 @@ const styles: Record<string, React.CSSProperties> = {
     maxHeight: '500px',
     overflowY: 'auto',
   },
-  stateRow: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '10px 12px',
-    borderRadius: 'var(--radius-md)',
-    border: '1px solid transparent',
-    background: 'var(--bg-card)',
-    cursor: 'pointer',
-    transition: 'all 0.2s',
-    width: '100%',
-    fontFamily: 'var(--font-body)',
-    textAlign: 'left',
-    color: 'var(--text-primary)',
-  },
-  stateRowActive: {
-    borderColor: 'var(--accent)',
-    background: 'rgba(220, 38, 38, 0.08)',
-  },
+  stateRow: {},
+  stateRowActive: {},
   stateLeft: {
     display: 'flex',
     alignItems: 'center',

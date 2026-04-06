@@ -15,7 +15,7 @@ export function PolicyCards() {
 
         <div style={styles.grid}>
           {taxModels.map((model, i) => (
-            <div key={model.id} style={{
+            <div key={model.id} className="policy-card" style={{
               ...styles.card,
               borderTopColor: ['var(--accent)', 'var(--accent-warm)', 'var(--info)', 'var(--success)'][i],
             }}>

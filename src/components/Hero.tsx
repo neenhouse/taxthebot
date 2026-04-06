@@ -29,16 +29,16 @@ export function Hero() {
         </p>
 
         <div style={styles.ctas}>
-          <a href="#dashboard" style={styles.ctaPrimary}>
+          <a href="#dashboard" className="cta-primary">
             See the Data
           </a>
-          <a href="#calculator" style={styles.ctaSecondary}>
+          <a href="#calculator" className="cta-secondary">
             Calculate the Tax
           </a>
         </div>
 
         <div style={styles.counters}>
-          <div style={styles.counterCard}>
+          <div className="counter-card counter-card--profit">
             <div style={styles.counterLabel}>AI Profits Today</div>
             <div style={styles.counterValue}>
               ${(liveProfit / 1e9).toFixed(3)}B
@@ -46,7 +46,7 @@ export function Hero() {
             <div style={styles.counterRate}>+${(profitPerSecond).toFixed(0)}/sec</div>
           </div>
 
-          <div style={styles.counterCard}>
+          <div className="counter-card counter-card--jobs">
             <div style={styles.counterLabel}>Jobs Displaced Today</div>
             <div style={{ ...styles.counterValue, color: 'var(--accent)' }}>
               {formatNumber(Math.floor(liveJobs))}
@@ -54,7 +54,7 @@ export function Hero() {
             <div style={styles.counterRate}>and counting</div>
           </div>
 
-          <div style={styles.counterCard}>
+          <div className="counter-card counter-card--tax">
             <div style={styles.counterLabel}>If Bots Were Taxed (5%)</div>
             <div style={{ ...styles.counterValue, color: 'var(--success)' }}>
               ${(liveTaxRevenue / 1e9).toFixed(3)}B
@@ -137,41 +137,12 @@ const styles: Record<string, React.CSSProperties> = {
     flexWrap: 'wrap',
     marginBottom: '64px',
   },
-  ctaPrimary: {
-    padding: '14px 32px',
-    background: 'var(--accent)',
-    color: 'white',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '16px',
-    fontWeight: 600,
-    textDecoration: 'none',
-    transition: 'all 0.2s',
-    boxShadow: '0 0 20px rgba(220, 38, 38, 0.3)',
-  },
-  ctaSecondary: {
-    padding: '14px 32px',
-    background: 'transparent',
-    color: 'var(--accent-warm)',
-    border: '1px solid var(--accent-warm)',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '16px',
-    fontWeight: 600,
-    textDecoration: 'none',
-    transition: 'all 0.2s',
-  },
   counters: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
     gap: '16px',
     maxWidth: '900px',
     margin: '0 auto',
-  },
-  counterCard: {
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    borderRadius: 'var(--radius-lg)',
-    padding: '24px',
-    textAlign: 'center',
   },
   counterLabel: {
     fontSize: '12px',
