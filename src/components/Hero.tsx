@@ -69,14 +69,10 @@ export function Hero() {
         {/* Right: hero image panel */}
         <div style={styles.rightPanel} aria-hidden="true">
           <div style={styles.imageFrame}>
-            <img
-              src="/hero-og.webp"
-              alt=""
-              style={styles.heroImage}
-              loading="eager"
-              width="600"
-              height="315"
-            />
+            <video autoPlay muted loop playsInline poster="/hero-og.webp" style={styles.heroImage} width={600} height={315}>
+              <source src="/hero-og.webm" type="video/webm" />
+              <source src="/hero-og.mp4" type="video/mp4" />
+            </video>
             <div style={styles.imageOverlay} />
             <div style={styles.scanline} />
           </div>
