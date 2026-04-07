@@ -211,7 +211,6 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     gap: '8px',
   },
-  repCard: {},
   repInfo: {
     display: 'flex',
     flexDirection: 'column',
@@ -264,8 +263,6 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     gap: '8px',
   },
-  nlInput: {},
-  nlBtn: {},
   nlSuccess: {
     color: 'var(--success)',
     fontSize: '14px',
@@ -287,7 +284,6 @@ const styles: Record<string, React.CSSProperties> = {
     maxHeight: '300px',
     overflow: 'auto',
   },
-  copyBtn: {},
   shareSection: {
     padding: '24px',
     background: 'var(--bg-card)',
@@ -305,5 +301,4 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '8px',
     flexWrap: 'wrap',
   },
-  shareBtn: {},
 };

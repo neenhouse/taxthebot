@@ -230,7 +230,6 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '16px',
     marginBottom: '48px',
   },
-  fundingCard: {},
   fundingIcon: {
     fontSize: '32px',
     marginBottom: '12px',

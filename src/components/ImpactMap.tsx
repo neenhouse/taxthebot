@@ -239,8 +239,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '12px',
     color: 'var(--text-muted)',
   },
-  sortBtn: {},
-  sortBtnActive: {},
   stateList: {
     display: 'flex',
     flexDirection: 'column',
@@ -248,8 +246,6 @@ const styles: Record<string, React.CSSProperties> = {
     maxHeight: '500px',
     overflowY: 'auto',
   },
-  stateRow: {},
-  stateRowActive: {},
   stateLeft: {
     display: 'flex',
     alignItems: 'center',
