@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 const navLinks = [
-  { label: 'Dashboard', href: '#dashboard' },
-  { label: 'Calculator', href: '#calculator' },
-  { label: 'Impact Map', href: '#impact' },
-  { label: 'Policy', href: '#policy' },
-  { label: 'Take Action', href: '#action' },
+  { label: 'Data', href: '#dashboard' },
+  { label: 'Stories', href: '#stories' },
+  { label: 'Legislation', href: '#legislation' },
+  { label: 'Impact', href: '#impact' },
+  { label: 'Act', href: '#action' },
 ];
 
 export function Header() {

@@ -10,11 +10,11 @@ describe('App', () => {
 
   it('renders navigation links', () => {
     render(<App />);
-    expect(screen.getByText('Dashboard')).toBeInTheDocument();
-    expect(screen.getByText('Calculator')).toBeInTheDocument();
-    expect(screen.getAllByText('Impact Map').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText('Policy').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText('Take Action').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Data').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText('Stories')).toBeInTheDocument();
+    expect(screen.getByText('Legislation')).toBeInTheDocument();
+    expect(screen.getByText('Impact')).toBeInTheDocument();
+    expect(screen.getByText('Act')).toBeInTheDocument();
   });
 
   it('renders the company dashboard section', () => {

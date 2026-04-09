@@ -2,9 +2,10 @@ import './App.css';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CompanyDashboard } from './components/CompanyDashboard';
+import { DisplacementStories } from './components/DisplacementStories';
 import { TaxCalculator } from './components/TaxCalculator';
+import { LegislativeTracker } from './components/LegislativeTracker';
 import { ImpactMap } from './components/ImpactMap';
-import { PolicyCards } from './components/PolicyCards';
 import { TakeAction } from './components/TakeAction';
 import { Footer } from './components/Footer';
 
@@ -16,9 +17,10 @@ function App() {
       <main id="main-content">
         <Hero />
         <CompanyDashboard />
+        <DisplacementStories />
         <TaxCalculator />
+        <LegislativeTracker />
         <ImpactMap />
-        <PolicyCards />
         <TakeAction />
       </main>
       <Footer />

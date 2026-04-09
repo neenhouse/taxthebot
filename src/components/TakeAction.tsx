@@ -1,42 +1,47 @@
 import { useState } from 'react';
 
-const representatives = [
-  { name: 'Sen. Maria Cantwell', state: 'WA', party: 'D', committee: 'Commerce, Science, and Transportation' },
-  { name: 'Sen. Ted Cruz', state: 'TX', party: 'R', committee: 'Commerce, Science, and Transportation' },
-  { name: 'Rep. Anna Eshoo', state: 'CA', party: 'D', committee: 'Energy and Commerce' },
-  { name: 'Sen. Chuck Schumer', state: 'NY', party: 'D', committee: 'Majority Leader' },
-  { name: 'Rep. Jay Obernolte', state: 'CA', party: 'R', committee: 'AI Caucus Co-Chair' },
+const actionItems = [
+  {
+    id: 'track-bills',
+    title: 'Track Legislation Near You',
+    description: 'Follow AI-related bills in your state. Know when hearings happen. Show up.',
+    cta: 'View Legislative Tracker',
+    href: '#legislation',
+    icon: 'GO',
+    accent: 'var(--info)',
+  },
+  {
+    id: 'share-story',
+    title: 'Share Your Displacement Story',
+    description: 'If AI automation affected your job, your experience can shape policy. Anonymous submissions welcome.',
+    cta: 'Tell Your Story',
+    href: 'mailto:stories@taxthebot.org?subject=My%20Displacement%20Story',
+    icon: 'ME',
+    accent: 'var(--accent)',
+  },
+  {
+    id: 'cite-data',
+    title: 'Use the Data',
+    description: 'Journalists, researchers, union organizers — cite these numbers. Challenge them. Improve them.',
+    cta: 'See Methodology',
+    href: '#methodology',
+    icon: 'USE',
+    accent: 'var(--accent-warm)',
+  },
+  {
+    id: 'contact-reps',
+    title: 'Contact Your Representative',
+    description: 'AI policy is being written right now. Your representative needs to hear from constituents, not just lobbyists.',
+    cta: 'Find Your Rep',
+    href: 'https://www.house.gov/representatives/find-your-representative',
+    icon: 'ACT',
+    accent: 'var(--success)',
+  },
 ];
 
-const letterTemplate = `Dear [Representative Name],
-
-I am writing to urge your support for legislation that would establish a fair tax on AI-generated profits — a "robot tax" — to fund programs for workers displaced by automation.
-
-In 2025 alone, the top AI companies generated over $207 billion in AI-related profits while an estimated 1.7 million jobs were displaced. Currently, these profits are taxed at the same rate as any other corporate income, with no special provisions to address the unique economic disruption caused by artificial intelligence.
-
-I believe we need:
-
-1. A dedicated tax on AI-generated profits (even 5% would generate $10+ billion annually)
-2. Funded retraining programs for displaced workers
-3. Community investment funds for areas most affected by AI displacement
-4. Transparent reporting requirements for AI's impact on employment
-
-The AI revolution should benefit all Americans, not just shareholders. I urge you to support robot tax legislation.
-
-Sincerely,
-[Your Name]
-[Your Address]`;
-
 export function TakeAction() {
-  const [copied, setCopied] = useState(false);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(letterTemplate);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,89 +56,63 @@ export function TakeAction() {
       <div style={styles.container}>
         <div style={styles.header}>
           <span style={styles.tag}>TAKE ACTION</span>
-          <h2 style={styles.title}>Make Your Voice Heard</h2>
+          <h2 style={styles.title}>What You Can Do Right Now</h2>
           <p style={styles.subtitle}>
-            Data means nothing without action. Contact your representatives,
-            share the data, and demand accountability.
+            Data without action is a hobby. Pick one thing and do it today.
           </p>
         </div>
 
-        <div style={styles.layout}>
-          <div style={styles.leftCol}>
-            <h3 style={styles.sectionTitle}>Key Representatives</h3>
-            <p style={styles.sectionDesc}>
-              These legislators sit on committees that directly influence AI policy.
-            </p>
-
-            <div style={styles.repList}>
-              {representatives.map(rep => (
-                <div key={rep.name} className="rep-card">
-                  <div style={styles.repInfo}>
-                    <div style={styles.repName}>{rep.name}</div>
-                    <div style={styles.repMeta}>
-                      <span style={{
-                        ...styles.partyBadge,
-                        background: rep.party === 'D' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-                        color: rep.party === 'D' ? '#3B82F6' : '#EF4444',
-                      }}>
-                        {rep.party}
-                      </span>
-                      <span style={styles.repState}>{rep.state}</span>
-                      <span style={styles.repCommittee}>{rep.committee}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div style={styles.newsletter}>
-              <h4 style={styles.nlTitle}>Stay Updated</h4>
-              <p style={styles.nlDesc}>Get weekly reports on AI profits and displacement data.</p>
-              {subscribed ? (
-                <div style={styles.nlSuccess}>Thanks for subscribing! (Demo only)</div>
-              ) : (
-                <form onSubmit={handleSubscribe} style={styles.nlForm}>
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    className="nl-input"
-                    required
-                  />
-                  <button type="submit" className="btn-primary">Subscribe</button>
-                </form>
-              )}
-            </div>
-          </div>
-
-          <div style={styles.rightCol}>
-            <h3 style={styles.sectionTitle}>Draft Letter to Your Representative</h3>
-            <p style={styles.sectionDesc}>
-              Copy this template and customize it with your details.
-            </p>
-
-            <div style={styles.letterCard}>
-              <pre style={styles.letterText}>{letterTemplate}</pre>
-              <button onClick={handleCopy} className="btn-warm">
-                {copied ? 'Copied!' : 'Copy Letter'}
-              </button>
-            </div>
-
-            <div style={styles.shareSection}>
-              <h4 style={styles.shareTitle}>Share the Data</h4>
-              <div style={styles.shareButtons}>
-                <button className="share-btn" style={{ background: '#1DA1F2' }}>
-                  Share on X
-                </button>
-                <button className="share-btn" style={{ background: '#0A66C2' }}>
-                  Share on LinkedIn
-                </button>
-                <button className="share-btn" style={{ background: '#4267B2' }}>
-                  Share on Facebook
-                </button>
+        <div style={styles.grid}>
+          {actionItems.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              className="action-card"
+              style={styles.card}
+            >
+              <div style={{ ...styles.iconBadge, background: item.accent }}>
+                {item.icon}
               </div>
-            </div>
+              <h3 style={styles.cardTitle}>{item.title}</h3>
+              <p style={styles.cardDesc}>{item.description}</p>
+              <span style={{ ...styles.cardCta, color: item.accent }}>
+                {item.cta} &rarr;
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <div style={styles.newsletter}>
+          <div style={styles.nlContent}>
+            <h3 style={styles.nlTitle}>Stay in the Loop</h3>
+            <p style={styles.nlDesc}>
+              Quarterly reports on AI profits, displacement data, and legislative updates.
+              No spam. Unsubscribe anytime.
+            </p>
+          </div>
+          <div style={styles.nlFormWrapper}>
+            {subscribed ? (
+              <div style={styles.nlSuccess}>
+                Thanks — we will be in touch when we launch. (Newsletter coming soon)
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} style={styles.nlForm}>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="nl-input"
+                  required
+                />
+                <button type="submit" className="btn-primary">
+                  Subscribe
+                </button>
+              </form>
+            )}
+            <p style={styles.nlHonest}>
+              Newsletter is not yet active. Your email will be saved for launch notification only.
+            </p>
           </div>
         </div>
       </div>
@@ -180,85 +159,76 @@ const styles: Record<string, React.CSSProperties> = {
     margin: '0 auto',
     lineHeight: 1.6,
   },
-  layout: {
+  grid: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '32px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+    gap: '20px',
+    marginBottom: '48px',
   },
-  leftCol: {
+  card: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '24px',
-  },
-  rightCol: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '24px',
-  },
-  sectionTitle: {
-    fontSize: '18px',
-    color: 'var(--text-primary)',
-    fontWeight: 600,
-  },
-  sectionDesc: {
-    fontSize: '14px',
-    color: 'var(--text-secondary)',
-    lineHeight: 1.5,
-    marginTop: '-12px',
-  },
-  repList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-  },
-  repInfo: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '4px',
-  },
-  repName: {
-    fontSize: '14px',
-    fontWeight: 600,
-    color: 'var(--text-primary)',
-  },
-  repMeta: {
-    display: 'flex',
-    gap: '8px',
-    alignItems: 'center',
-    fontSize: '12px',
-    color: 'var(--text-muted)',
-  },
-  partyBadge: {
-    padding: '1px 6px',
-    borderRadius: 'var(--radius-sm)',
-    fontSize: '11px',
-    fontWeight: 600,
-    fontFamily: 'var(--font-mono)',
-  },
-  repState: {
-    fontFamily: 'var(--font-mono)',
-    fontWeight: 500,
-  },
-  repCommittee: {
-    color: 'var(--text-muted)',
-  },
-  newsletter: {
+    gap: '12px',
     padding: '24px',
     background: 'var(--bg-card)',
     border: '1px solid var(--border)',
     borderRadius: 'var(--radius-lg)',
+    textDecoration: 'none',
+    transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
+    cursor: 'pointer',
   },
-  nlTitle: {
+  iconBadge: {
+    width: '40px',
+    height: '28px',
+    borderRadius: 'var(--radius-sm)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    fontWeight: 700,
+    fontSize: '11px',
+    fontFamily: 'var(--font-mono)',
+    letterSpacing: '0.5px',
+  },
+  cardTitle: {
     fontSize: '16px',
+    fontWeight: 600,
+    color: 'var(--text-primary)',
+  },
+  cardDesc: {
+    fontSize: '13px',
+    color: 'var(--text-secondary)',
+    lineHeight: 1.6,
+    flex: 1,
+  },
+  cardCta: {
+    fontSize: '13px',
+    fontWeight: 600,
+    fontFamily: 'var(--font-mono)',
+  },
+  newsletter: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '32px',
+    alignItems: 'center',
+    padding: '32px',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--border)',
+    borderRadius: 'var(--radius-lg)',
+  },
+  nlContent: {},
+  nlTitle: {
+    fontSize: '20px',
     fontWeight: 600,
     color: 'var(--text-primary)',
     marginBottom: '8px',
   },
   nlDesc: {
-    fontSize: '13px',
+    fontSize: '14px',
     color: 'var(--text-secondary)',
-    marginBottom: '16px',
+    lineHeight: 1.6,
   },
+  nlFormWrapper: {},
   nlForm: {
     display: 'flex',
     gap: '8px',
@@ -268,37 +238,10 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '14px',
     fontWeight: 500,
   },
-  letterCard: {
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    borderRadius: 'var(--radius-lg)',
-    padding: '20px',
-    position: 'relative',
-  },
-  letterText: {
-    fontSize: '12px',
-    color: 'var(--text-secondary)',
-    lineHeight: 1.6,
-    whiteSpace: 'pre-wrap',
-    fontFamily: 'var(--font-mono)',
-    maxHeight: '300px',
-    overflow: 'auto',
-  },
-  shareSection: {
-    padding: '24px',
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    borderRadius: 'var(--radius-lg)',
-  },
-  shareTitle: {
-    fontSize: '16px',
-    fontWeight: 600,
-    color: 'var(--text-primary)',
-    marginBottom: '12px',
-  },
-  shareButtons: {
-    display: 'flex',
-    gap: '8px',
-    flexWrap: 'wrap',
+  nlHonest: {
+    fontSize: '11px',
+    color: 'var(--text-muted)',
+    marginTop: '8px',
+    fontStyle: 'italic',
   },
 };

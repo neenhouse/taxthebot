@@ -10,11 +10,16 @@ export function CompanyDashboard() {
     <section id="dashboard" style={styles.section} ref={ref as React.RefObject<HTMLElement>}>
       <div style={styles.container}>
         <div style={styles.header}>
-          <span style={styles.tag}>AI PROFIT TRACKER</span>
+          <span style={styles.tag}>RESEARCH ESTIMATES</span>
           <h2 style={styles.title}>Follow the Money</h2>
           <p style={styles.subtitle}>
             The top AI companies generated unprecedented profits in 2025.
             Here is where the money went — and where it did not.
+          </p>
+          <p style={styles.methodNote}>
+            Revenue and profit figures from SEC filings and earnings reports.
+            Displacement estimates are modeled from BLS data and industry reports —
+            not direct measurements. We show our work because credibility matters more than polish.
           </p>
         </div>
 
@@ -95,9 +100,21 @@ export function CompanyDashboard() {
         <div style={styles.insight}>
           <div style={styles.insightIcon}>!</div>
           <div>
-            <strong>The gap is staggering:</strong> For every job AI displaces, Nvidia alone profits $319,592.
+            <strong>The gap is staggering:</strong> For every job AI displaces, Nvidia alone profits an estimated $319,592.
             That displaced worker? Average severance: $0 from AI companies. Zero retraining. Zero support.
           </div>
+        </div>
+
+        <div id="methodology" style={styles.sources}>
+          <h4 style={styles.sourcesTitle}>Sources &amp; Methodology</h4>
+          <p style={styles.sourcesText}>
+            Revenue and profit data derived from 2025 SEC 10-K filings and quarterly earnings reports.
+            Displacement figures are estimates modeled from Bureau of Labor Statistics occupational
+            employment surveys, cross-referenced with industry automation adoption reports.
+            "Profit per displaced worker" divides reported AI segment profits by estimated displaced
+            positions — a directional metric, not a precise measurement.
+            We publish this methodology because the numbers should be challenged, refined, and improved.
+          </p>
         </div>
       </div>
     </section>
@@ -211,6 +228,14 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 600,
     fontSize: '13px',
   },
+  methodNote: {
+    fontSize: '13px',
+    color: 'var(--text-muted)',
+    maxWidth: '640px',
+    margin: '12px auto 0',
+    lineHeight: 1.6,
+    fontStyle: 'italic',
+  },
   insight: {
     marginTop: '24px',
     display: 'flex',
@@ -236,5 +261,26 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     fontWeight: 700,
     fontSize: '14px',
+  },
+  sources: {
+    marginTop: '24px',
+    padding: '20px',
+    background: 'var(--bg-elevated)',
+    border: '1px solid var(--border)',
+    borderRadius: 'var(--radius-lg)',
+  },
+  sourcesTitle: {
+    fontSize: '13px',
+    fontWeight: 600,
+    color: 'var(--text-secondary)',
+    fontFamily: 'var(--font-mono)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '1px',
+    marginBottom: '8px',
+  },
+  sourcesText: {
+    fontSize: '13px',
+    color: 'var(--text-muted)',
+    lineHeight: 1.7,
   },
 };

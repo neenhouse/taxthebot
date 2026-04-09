@@ -15,7 +15,7 @@ export function Hero() {
         <div style={styles.leftPanel}>
           <div style={styles.badge}>
             <span style={styles.badgeDot} />
-            LIVE DATA
+            RESEARCH ESTIMATES
           </div>
 
           <h1 style={styles.heading}>
@@ -28,6 +28,12 @@ export function Hero() {
 
           <p style={styles.subtitle}>
             Track the profits. Tax the bots. Fund the future.
+          </p>
+
+          <p style={styles.methodology}>
+            Estimates based on SEC filings, earnings reports, and BLS employment data.
+            Displacement figures are modeled, not measured.{' '}
+            <a href="#methodology" style={styles.methodLink}>See methodology</a>
           </p>
 
           <div style={styles.ctas}>
@@ -182,8 +188,21 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 'clamp(16px, 2vw, 20px)',
     color: 'var(--text-secondary)',
     maxWidth: '600px',
-    margin: '0 auto 40px',
+    margin: '0 auto 16px',
     lineHeight: 1.6,
+  },
+  methodology: {
+    fontSize: '12px',
+    color: 'var(--text-muted)',
+    maxWidth: '500px',
+    lineHeight: 1.5,
+    marginBottom: '32px',
+    fontFamily: 'var(--font-mono)',
+  },
+  methodLink: {
+    color: 'var(--text-secondary)',
+    textDecoration: 'underline',
+    textUnderlineOffset: '2px',
   },
   ctas: {
     display: 'flex',

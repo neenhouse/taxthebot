@@ -394,3 +394,78 @@ button:hover {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
 }
+
+/* ── Action card hover ─────────────────────────────── */
+.action-card {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.action-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+.action-card:active {
+  transform: translateY(-1px);
+}
+
+/* ── Legislative card hover ────────────────────────── */
+.legislative-card {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.legislative-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Story card hover ──────────────────────────────── */
+.story-card {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.story-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Filter button ─────────────────────────────────── */
+.filter-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.filter-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.04);
+}
+.filter-btn--active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+/* ── Responsive: stories + legislation ─────────────── */
+@media (max-width: 900px) {
+  #stories > div > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+  }
+  #legislation > div > div:nth-child(3) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Newsletter layout stacks */
+  #action .newsletter,
+  #action > div > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+}
